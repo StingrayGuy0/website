@@ -1,0 +1,233 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+<style>
+    body {
+        background: rgb(0, 0, 0);
+    }
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+</head>
+<body>
+<center>
+<style>
+.BigTitleTop {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    animation: glow 1.5s infinite alternate;
+    transition: transform 0.7s ease;
+}
+.BigTitleTop:hover {
+    transform: scale(1.2);
+}
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+    }
+    100% {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
+    }
+}
+
+</style>
+
+<p class="BigTitleTop">Contact Me!</p>
+
+
+
+<style>
+    .textbox {
+        width: 300px;
+        height: 100px;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid rgb(0, 64, 255);
+        background-color: rgba(255, 255, 255, 0.8);
+        font-size: 18px;
+        color: rgb(0, 64, 255);
+        transition: all 0.5s ease;
+        resize: none;
+    }
+    .textbox:hover,
+    .textbox.expanded {
+        width: 700px;
+        height: 300px;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+</style>
+
+<textarea
+    maxlength="300"
+    class="textbox"
+    id="messageBox"
+    placeholder="Enter your message here..."
+></textarea>
+
+<script>
+    const textbox = document.getElementById('messageBox');
+    textbox.addEventListener('input', () => {
+        textbox.classList.toggle('expanded', textbox.value.trim() !== "");
+    });
+</script>
+
+            <br>
+            <style>
+            .glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #ffffff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff304c, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #b2abab
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+            </style>
+
+
+
+            <button class="glow-on-hover" style="margin-top: 20px; padding: 10px 20px; font-size: 20px; border-radius: 10px; border: none; background-color: rgb(0, 64, 255); color: white; cursor: pointer;">Send Message</button>
+            <style>
+            .home-button {
+    display: inline-block;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        0 0 5px #00f6ff,
+        0 0 10px #0066ff,
+        0 0 20px #d900ff,
+        0 0 40px rgb(255, 0, 123);
+    transition: all 0.3s ease-in-out;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: pulseGlow 2.5s ease-in-out infinite, drift 4s ease-in-out infinite;
+
+
+}
+
+.home-button:hover {
+    background: rgba(0, 255, 255, 0.2);
+    transform: translateX(-50%) scale(1.05);
+    box-shadow:
+        0 0 10px #00f6ff,
+        0 0 20px #00f6ff,
+        0 0 40px #00f6ff,
+        0 0 60px #00f6ff;
+    animation: pulseGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow:
+            0 0 5px #00f6ff,
+            0 0 10px #00f6ff,
+            0 0 20px #00f6ff,
+            0 0 40px #0ff;
+    }
+    50% {
+        box-shadow:
+            0 0 10px #00f6ff,
+            0 0 20px #00f6ff,
+            0 0 30px #00f6ff,
+            0 0 60px #0ff;
+    }
+    100% {
+        box-shadow:
+            0 0 5px #00f6ff,
+            0 0 10px #00f6ff,
+            0 0 20px #00f6ff,
+            0 0 40px #0ff;
+    }
+}
+
+@keyframes drift {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    25% {
+        transform: translateX(-51%) translateY(-2px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(2px);
+    }
+    75% {
+        transform: translateX(-49%) translateY(-1px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+</style>
+
+<a href="index.html" class="home-button">Home</a>
+
+
+</center>

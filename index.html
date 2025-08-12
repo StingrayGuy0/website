@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website :O</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: radial-gradient(ellipse at center, #000010 0%, #000000 100%);
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.05;
+            z-index: 0;
+        }
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        #clock {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+            z-index: 20;
+        }
+        header {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .title {
+            font-size: 3.5rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+            color: #00ffee;
+            margin-bottom: 3rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .menu button {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            animation: float 4s ease-in-out infinite alternate;
+        }
+        .menu button:hover {
+            background: rgba(0, 255, 255, 0.15);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+        }
+        .featured {
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            z-index: 2;
+        }
+        .gradient-border {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 50px;
+            background: linear-gradient(to right, #b0fffe, #a6ff81);
+        }
+        .gradient-border img {
+            border-radius: 40px;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #ccc;
+            position: relative;
+            z-index: 2;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="clock">--:--:--</div>
+    <header>
+        <div class="title">some website</div>
+        
+        <div class="menu">
+            <button onclick="location.href='contact.html'">Contact</button>
+            <button onclick="location.href='about.html'">About</button>
+            <button onclick="location.href='funny.html'">Funny</button>
+            <button onclick="location.href='triangle.html'">Triangle</button>
+            <button onclick="location.href='grenade.html'">Grenade</button>
+        </div>
+    </header>
+    <main>
+        
+        <section class="featured">
+            <h2>Featured Image</h2>
+            <div class="gradient-border">
+                <img src="911minimalist.jpeg" alt="911" width="300" height="600" />
+            </div>
+        </section>
+    </main>
+    <footer>
+        
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            document.getElementById('clock').textContent = time;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 60 },
+                size: { value: 2 },
+                color: { value: "#00ffee" },
+                opacity: { value: 0.6 },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00ffee",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1
+                }
+            },
+        });
+    </script>
+    <audio id="hover-sound" href=sci-fi-click.mp3></audio>
+    <script>
+        const buttons = document.querySelectorAll(".menu button");
+        const hoverSound = document.getElementById("hover-sound");
+        buttons.forEach(btn => {
+            btn.addEventListener("mouseenter", () => {
+                hoverSound.currentTime = 0;
+                hoverSound.play();
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+<script>
+let k={z:false,x:false};
+onkeydown=e=>k[e.key]!==undefined&&(k[e.key]=true);
+onkeyup=e=>k[e.key]!==undefined&&(k[e.key]=false);
+setInterval(()=>k.z&&k.x&&(location.href="home.html"),10);
+</script>

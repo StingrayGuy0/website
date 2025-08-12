@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+    <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+    <script>
+        function openNav() {
+        document.getElementById("mySidepanel").style.width = "250px";
+        }
+
+        function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0";
+        }
+    </script>
+    <style>
+        .sidepanel {
+        height: 250px;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s;
+        }
+
+        .sidepanel a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidepanel a:hover {
+        color: #f1f1f1;
+    }
+
+        .sidepanel .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+        .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+    }
+
+        .openbtn:hover {
+        background-color: #444;
+    }
+    </style>
+    <button class="openbtn" onclick="openNav()">&#9776; Contents</button>
+    <style>
+        body {
+        background-color: rgb(86, 86, 86);
+    }
+
+        .headtitle {
+        font-size: 3.5rem;
+        color: #ffffff;
+        animation: glow 1.5s infinite alternate;
+        transition: transform 0.7s ease;
+    }
+    </style>
+    <center>
+        <header>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <p class="headtitle">OSD Python Manual</p>
+        </header>
+        <h1 style="color: beige;">Introduction</h1>
+        <p style="color: white; font-size: 1.2rem; max-width: 800px; text-align: center;">This tool is a Python-based Remote Access Shell designed for cybersecurity experimentation and learning. It allows a user (attacker/controller) to connect to a target machine (listener/server), send shell commands, upload/download files, and invoke a PTY-based shell for real terminal-like interactions.❗ For educational purposes only. Do not use on systems without explicit permission (frfr)</p>
+    
+    </center>
+    </body>

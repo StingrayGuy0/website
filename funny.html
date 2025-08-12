@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<style>
+    body {
+        background: radial-gradient(ellipse at center, #000010 0%, #000000 100%);
+    }
+</style>
+<header>
+    <style>
+        .title {
+            font-size: 3.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(90deg, #00ffcc, #ff00cc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: neon 1.5s infinite alternate;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .keyButton {
+            height: 50px;
+            width: 50px;
+            margin: 3px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            background: white;
+            border: 1px solid #6d6d6d;
+            transition: background 0.2s;
+        }
+        .keyboard-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        .spacebar {
+            width: 200px;
+        }
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 15px #00ffcc;
+            }
+            to {
+                text-shadow: 0 0 20px #22ff00, 0 0 30px #22ff00, 0 0 40px #22ff00;
+            }
+            to {
+                text-shadow: 0 0 5px #ff00cc, 0 0 10px #ff00cc, 0 0 15px #ff00cc;
+            }
+            to {
+                text-shadow: 0 0 20px #22deff, 0 0 30px #22edff, 0 0 40px #22e5ff;
+            }
+            to {
+                text-shadow: 0 0 5px #00ffee, 0 0 10px #00ffee, 0 0 15px #00ffee;
+            }
+        }
+        @keyframes float {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+    <center>
+    <p style="border-radius: 50px;" class="title">Test your keyboard here</p>
+    </center>
+</header>
+<body>
+    <center>
+    <div id="fading-typed-text" style="font-size: 2rem; color: rgb(210, 255, 95); margin-top: 20px;"></div>
+    <div id="keyboard"></div>
+    </center>
+</body>
+
+<script>
+    // QWERTY layout rows
+    const rows = [
+        [..."1234567890"],
+        [..."QWERTYUIOP"],
+        [..."ASDFGHJKL"],
+        [..."ZXCVBNM,."],
+        [..." "]
+    ];
+
+    const keyboardDiv = document.getElementById('keyboard');
+    rows.forEach(row => {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'keyboard-row';
+        row.forEach(key => {
+            const btn = document.createElement('button');
+            btn.className = key === " " ? 'keyButton spacebar' : 'keyButton';
+            btn.textContent = key === " " ? "Space" : key;
+            btn.setAttribute('data-key', key === " " ? " " : key);
+            rowDiv.appendChild(btn);
+        });
+        keyboardDiv.appendChild(rowDiv);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        const key = event.key.length === 1 ? event.key.toUpperCase() : event.key;
+        document.querySelectorAll('.keyButton').forEach(btn => {
+            if (
+                (btn.getAttribute('data-key') === " " && event.key === " ") ||
+                (btn.getAttribute('data-key') === key)
+            ) {
+                btn.style.background = "red";
+            }
+        });
+    });
+
+    document.addEventListener('keyup', (event) => {
+        const key = event.key.length === 1 ? event.key.toUpperCase() : event.key;
+        document.querySelectorAll('.keyButton').forEach(btn => {
+            if (
+                (btn.getAttribute('data-key') === " " && event.key === " ") ||
+                (btn.getAttribute('data-key') === key)
+            ) {
+                btn.style.background = "white";
+            }
+        });
+    });
+</script>

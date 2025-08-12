@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<style>
+    .title {
+        font-size: 3.5rem;
+        padding: 1rem 2rem;
+        background: linear-gradient(90deg, #00ffcc, #ff00cc);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: neon 1.5s infinite alternate;
+    }
+    body{
+        background: rgb(0, 0, 0);
+    }
+    .Username, .Password {
+        width: 300px;
+        height: 40px;
+        font-size: 1.2rem;
+        padding: 10ax;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 20px;
+    }
+</style>
+
+<style>
+    .Username {
+        width: 100px;
+        height: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        font-size: 18px;
+        color: rgb(66, 66, 66);
+        transition: all 0.5s ease;
+        resize: none;
+        overflow: hidden;
+    }
+    .Username:hover,
+    .Username.expanded {
+        width: 200px;
+        background-color: rgba(255, 200, 200, 0.9);
+    }
+    .Password {
+        width: 100px;
+        height: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        font-size: 18px;
+        color: rgb(66, 66, 66);
+        transition: all 0.5s ease;
+        resize: none;
+        overflow: hidden;
+    }
+    .Password:hover,
+    .Password.expanded {
+        width: 200px;
+        height: 20px;
+        background-color: rgba(255, 224, 224, 0.9);
+    }
+    .loginbutton {
+        width: 100px;
+        height: 40px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        font-size: 18px;
+        color: rgb(66, 66, 66);
+        transition: all 0.2s ease;
+        resize: none;
+        overflow: hidden;
+    }
+    .loginbutton:hover,
+    .loginbutton.expanded {
+        width: 120px;
+        height: 50px;
+        background-color: rgba(182, 187, 255, 0.9);
+    }
+
+
+</style>
+<center>
+    <header>
+        <p class="title">Login Page</p>
+        <br>
+        <textarea class="Username" placeholder="Username"></textarea>
+        <br>
+        <textarea class="Password" placeholder="Password"></textarea>
+        <br>
+        <br>
+        <button class="loginbutton">login</button>
+    </header>
+
+</center>
